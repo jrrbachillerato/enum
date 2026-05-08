@@ -11,3 +11,14 @@ else
 {
     Console.WriteLine("Por favor, introduce solo números.");
 }
+
+// RECORRER ARRAY DE ENUM
+// Obtenemos un array de strings con los nombres
+string[] nombres = Enum.GetNames(typeof(nivelAlbañil));
+
+Console.WriteLine("--- LISTA DE NIVELES ---");
+for (int i = 0; i < nombres.Length; i++)
+{
+    // Usamos i + 1 para que el menú sea 1, 2, 3...
+    Console.WriteLine($"{i + 1}. {nombres[i]}");
+}
