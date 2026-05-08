@@ -1,0 +1,17 @@
+// Intentamos leer el número de forma segura
+if (byte.TryParse(Console.ReadLine(), out opcionElegida))
+{
+    // Si el número es válido, comprobamos si existe en el Enum
+    if (Enum.IsDefined(typeof(nivelAlbañil), (nivelAlbañil)(opcionElegida - 1)))
+    {
+        nivel = (nivelAlbañil)(opcionElegida - 1);
+    }
+    else
+    {
+        Console.WriteLine("Ese número no corresponde a ningún nivel.");
+    }
+}
+else
+{
+    Console.WriteLine("Por favor, introduce solo números.");
+}
