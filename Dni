@@ -1,0 +1,24 @@
+private string dni;
+
+// Se llama en el constructor
+private void GenerarDNI()
+{
+    int numero = GenerarNumeroDNI();
+    char letra = ObtenerLetraDNI(numero);
+    dni = $"{numero:D8}-{letra}"; // D8 garantiza 8 dígitos con ceros a la izquierda
+}
+
+// Genera un número aleatorio de 8 cifras (10000000 - 99999999)
+private int GenerarNumeroDNI()
+{
+    Random rnd = new Random();
+    return rnd.Next(10000000, 99999999);
+}
+
+// Devuelve la letra correspondiente al número
+private char ObtenerLetraDNI(int numero)
+{
+    const string LETRAS_DNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+    int resto = numero % 23;
+    return LETRAS_DNI[resto];
+}
